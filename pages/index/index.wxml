@@ -7,10 +7,16 @@
   <view class="item-content">
     <view class="{{orderCount.num === 0 ? 'box' : 'box active'}}">
       <view class="item" wx:for="{{items}}" wx:key="{{item.id}}">
-        <image src="image/item-m.jpg"></image>
-        <text class="title">{{item.title}}</text>
-        <text class="price">￥ {{item.price}} 元</text>
-        <text class="{{item.active ? 'btn active' : 'btn'}}" bindtap='addOrder' data-id="{{item.id}}" data-index="{{index}}">添加</text>
+        <view>
+          <image class="item-images" src="{{item.imageUrl}}"></image>
+          <text class="title">{{item.title}}</text>
+          <text class="price">￥ {{item.price}}元</text>
+        </view>
+        <view style="overflow: hidden;">
+          <image bindtap='addOrder' class="item-btn" data-id="{{item.id}}" data-index="{{index}}" src="./image/jiahao.gif"></image>
+          <text style="margin-right: 10px; float: right;">{{item.num}}</text>
+          <image bindtap='delOrder' data-id="{{item.id}}" data-index="{{index}}" class="item-btn" src="./image/jianhao.gif"></image>
+        </view>
       </view>
     </view>
   </view>

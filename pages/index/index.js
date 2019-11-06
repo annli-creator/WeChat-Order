@@ -15,58 +15,57 @@ Page({
     orders: true,
     menus: [{
       id: 1,
-      menu: '菜单一'
+      menu: '陕西风味'
     }, {
       id: 1,
-      menu: '菜单二'
+      menu: '特色炒菜'
     }, {
       id: 1,
-      menu: '菜单三'
-    }, {
-      id: 1,
-      menu: '菜单四'
-    }, {
-      id: 1,
-      menu: '菜单五'
+      menu: '特色套餐'
     }],
     // 商品列表
     items: [{
       id: 1,
-      title: '湖南辣椒小炒肉1',
+      title: '肉夹馍',
       price: 12,
       active: false,
-      num: 1
+      imageUrl: './image/item-roujiamo.jpg',
+      num: 0
     }, {
       id: 2,
-      title: '湖南辣椒小炒肉2',
+      title: '凉皮',
       price: 13,
       active: false,
-      num: 1
+      imageUrl: './image/item-liangpi.jpg',
+      num: 0
     }, {
       id: 3,
-      title: '湖南辣椒小炒肉3',
+      title: '冰封',
       price: 14,
       active: false,
-      num: 1
+      imageUrl: './image/item-bingfeng.jpg',
+      num: 0
     }, {
       id: 4,
-      title: '湖南辣椒小炒肉4',
+      title: '裤带面',
       price: 15,
       active: false,
-      num: 1
+      imageUrl: './image/item-kudaimian.jpg',
+      num: 0
     }, {
       id: 5,
-      title: '湖南辣椒小炒肉5',
+      title: '臊子面',
+      imageUrl: './image/item-saozimian.jpg',
       price: 16,
       active: false,
-      num: 1
+      num: 0
     }]
   },
   // 下拉刷新
   onPullDownRefresh: function () {
     setTimeout(()=>{
       wx.showToast({
-        title: '成功加载数据',
+        title: '刷新成功',
         icon: 'success',
         duration: 500
       });
@@ -102,7 +101,7 @@ Page({
     let index = event.target.dataset.index;
     let param = this.data.items[index];
     let subOrders = []; // 购物单列表存储数据
-    param.active ? param.active = false : param.active = true;
+    // param.active ? param.active = false : param.active = true;
     // 改变添加按钮的状态
     this.data.items.splice(index, 1, param);
     that.setData({
